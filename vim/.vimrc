@@ -133,6 +133,13 @@ set tabstop=4
 set shiftwidth=4 " 每一级缩进是多少个空格
 set expandtab  " 将tab扩展成空格。noexpandtab反之
 
+" 设置修改多窗口大小的快捷键映射
+"nnoremap r+ :exe "resize " . (winheight(0) * 3/2)<CR>
+"nnoremap r- :exe "resize " . (winheight(0) * 2/3)<CR>
+"nnoremap v+ :exe "vertical resize " . (winheight(0) * 3/2)<CR>
+"nnoremap v- :exe "vertical resize " . (winheight(0) * 2/3)<CR>
+
+
 " 设置系统粘贴板
 "vmap "+y :w !pbcopy<CR><CR>
 "nmap "+p :r !pbpaste<CR><CR>
