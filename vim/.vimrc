@@ -16,8 +16,8 @@ set fileencodings=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936
 set termencoding=utf-8
 set encoding=utf-8  " 兼容中文字体，防止中文乱码
 set nocompatible  " 去掉vi一致性模式，避免以前版本的一些bug
-set cursorline   " 高亮光标所在的行
-hi cursorline cterm=NONE ctermbg=black ctermfg=gray guibg=NONE guifg=NONE
+" set cursorline   " 高亮光标所在的行
+" hi cursorline cterm=NONE ctermbg=black ctermfg=gray guibg=NONE guifg=NONE
 set number
 syntax on
 set hls     "搜索时高亮显示被找到的文本
@@ -45,6 +45,11 @@ set tabstop=4
 set shiftwidth=4 " 每一级缩进是多少个空格
 set expandtab  " 将tab扩展成空格。noexpandtab反之
 
+" config vim to match tmux in background
+if exists('$TMUX')
+    set term=screen-256color
+end
+
 " 设置修改多窗口大小的快捷键映射
 "nnoremap r+ :exe "resize " . (winheight(0) * 3/2)<CR>
 "nnoremap r- :exe "resize " . (winheight(0) * 2/3)<CR>
@@ -65,17 +70,17 @@ set expandtab  " 将tab扩展成空格。noexpandtab反之
 
 
 " 开启256色并设置光标为GUI模式
-if !has('gui_running')
-  set t_Co=256
-  if has('termguicolors')
-    set termguicolors
-  end
-  let &t_SI = "\<Esc>]50;CursorShape=1\x7"
-  let &t_SR = "\<Esc>]50;CursorShape=2\x7"
-  let &t_EI = "\<Esc>]50;CursorShape=0\x7"
-  set timeoutlen=1000
-  set ttimeoutlen=0
-end
+" if !has('gui_running')
+"   set t_Co=256
+"   if has('termguicolors')
+"     set termguicolors
+"   end
+"   let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+"   let &t_SR = "\<Esc>]50;CursorShape=2\x7"
+"   let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+"   set timeoutlen=1000
+"   set ttimeoutlen=0
+" end
 
 
 " ------------------ some configures of plugin --------------------" 
