@@ -16,8 +16,8 @@ set fileencodings=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936
 set termencoding=utf-8
 set encoding=utf-8  " 兼容中文字体，防止中文乱码
 set nocompatible  " 去掉vi一致性模式，避免以前版本的一些bug
-" set cursorline   " 高亮光标所在的行
-" hi cursorline cterm=NONE ctermbg=black ctermfg=gray guibg=NONE guifg=NONE
+set cursorline   " 高亮光标所在的行
+hi cursorline cterm=NONE ctermbg=black ctermfg=gray guibg=NONE guifg=NONE
 set number
 syntax on
 set hls     "搜索时高亮显示被找到的文本
