@@ -16,7 +16,8 @@ set fileencodings=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936
 set termencoding=utf-8
 set encoding=utf-8  " 兼容中文字体，防止中文乱码
 set nocompatible  " 去掉vi一致性模式，避免以前版本的一些bug
-
+set cursorline   " 高亮光标所在的行
+hi cursorline cterm=NONE ctermbg=black ctermfg=gray guibg=NONE guifg=NONE
 set number
 syntax on
 set hls     "搜索时高亮显示被找到的文本
@@ -27,11 +28,10 @@ set mouse=a
 set confirm
 set backspace=2   "可随时用退格键删除
 set whichwrap=b,s,<,>,[,]  "默认情况下，在 VIM 中当光标移到一行最左边的时候，我们继续按左键，光标不能回到上一行的最右边。
-set cursorline   " 高亮光标所在的行
 set noundofile  " 文件就不会产生.un文件
 set nobackup
 set noswapfile  " 文件就不会产生.swp文件
-set colorcolumn=101
+" set colorcolumn=101
 set nowrap
 
 " 代码折叠
@@ -65,17 +65,17 @@ set expandtab  " 将tab扩展成空格。noexpandtab反之
 
 
 " 开启256色并设置光标为GUI模式
-"if !has('gui_running')
-  "set t_Co=256
-  "if has('termguicolors')
-    "set termguicolors
-  "end
-  "let &t_SI = "\<Esc>]50;CursorShape=1\x7"
-  "let &t_SR = "\<Esc>]50;CursorShape=2\x7"
-  "let &t_EI = "\<Esc>]50;CursorShape=0\x7"
-  "set timeoutlen=1000
-  "set ttimeoutlen=0
-"end
+" if !has('gui_running')
+"   set t_Co=256
+"   if has('termguicolors')
+"     set termguicolors
+"   end
+"   let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+"   let &t_SR = "\<Esc>]50;CursorShape=2\x7"
+"   let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+"   set timeoutlen=1000
+"   set ttimeoutlen=0
+" end
 
 
 " ------------------ some configures of plugin --------------------" 
@@ -88,7 +88,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/nerdtree'                "file / directory tree
 Plugin 'scrooloose/nerdcommenter'           " code commenter
 " Plugin 'Valloric/YouCompleteMe'
-Plugin 'vim-scripts/cscope.vim'             " 函数跳转的插件
+" Plugin 'vim-scripts/cscope.vim'             " 函数跳转的插件
 Plugin 'bling/vim-airline'                  " 状态条加强
 " Plugin 'vim-airline/vim-airline-themes'     " airline 的颜色主题
 Plugin 'majutsushi/tagbar'                  " 函数跳转的插件，可以在vim中显示函数目录
