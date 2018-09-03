@@ -24,7 +24,7 @@ set hls     "搜索时高亮显示被找到的文本
 set is
 set sw=4
 set showcmd
-set mouse=a
+set mouse=r
 set confirm
 set backspace=2   "可随时用退格键删除
 set whichwrap=b,s,<,>,[,]  "默认情况下，在 VIM 中当光标移到一行最左边的时候，我们继续按左键，光标不能回到上一行的最右边。
