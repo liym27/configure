@@ -109,6 +109,7 @@ filetype plugin indent on
 
 
 " ##################### indentLine config #####################  
+nmap <F6> :IndentLinesToggle<cr>
 "let g:indentLine_setColors = 0
 let g:indentLine_color_term = 239
 "let g:indentLine_setConceal = 0
