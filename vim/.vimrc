@@ -118,8 +118,8 @@ let g:autopep8_disable_show_diff = 1
 
 
 " ##################### colorschemes config #####################  
-set background=dark
-colorscheme PaperColor
+" set background=dark
+colorscheme molokai 
 
 
 " ##################### SuperTab config #####################  
