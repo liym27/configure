@@ -11,14 +11,14 @@ map <F10> <Esc>:tabnew<cr>  " 设置F10为打开新标签页
 " map <C-[> <C-t>  " 重映射函数往回跳转快捷键
 
 
-" ------------------ some setting --------------------" 
+" ------------------ some setting --------------------"
 set fileencodings=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936
 set termencoding=utf-8
 set encoding=utf-8  " 兼容中文字体，防止中文乱码
 set nocompatible  " 去掉vi一致性模式，避免以前版本的一些bug
 
 set number
-syntax on
+"syntax on
 set hls     "搜索时高亮显示被找到的文本
 set is
 set sw=4
@@ -27,11 +27,11 @@ set mouse=a
 set confirm
 set backspace=2   "可随时用退格键删除
 set whichwrap=b,s,<,>,[,]  "默认情况下，在 VIM 中当光标移到一行最左边的时候，我们继续按左键，光标不能回到上一行的最右边。
-set cursorline   " 高亮光标所在的行
+"set cursorline   " 高亮光标所在的行
 set noundofile  " 文件就不会产生.un文件
 set nobackup
 set noswapfile  " 文件就不会产生.swp文件
-set colorcolumn=101
+" set colorcolumn=101
 set nowrap
 
 " 代码折叠
@@ -88,7 +88,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/nerdtree'                "file / directory tree
 Plugin 'scrooloose/nerdcommenter'           " code commenter
 " Plugin 'Valloric/YouCompleteMe'
-Plugin 'vim-scripts/cscope.vim'             " 函数跳转的插件
+" Plugin 'vim-scripts/cscope.vim'             " 函数跳转的插件
 Plugin 'bling/vim-airline'                  " 状态条加强
 " Plugin 'vim-airline/vim-airline-themes'     " airline 的颜色主题
 Plugin 'majutsushi/tagbar'                  " 函数跳转的插件，可以在vim中显示函数目录
@@ -100,10 +100,11 @@ call vundle#end()
 filetype plugin indent on
 
 
-" ##################### minibufexpl config #####################  
+" ##################### minibufexpl config #####################
 
 
-" ##################### indentLine config #####################  
+" ##################### indentLine config #####################
+nmap <F6> :IndentLinesToggle<cr>
 "let g:indentLine_setColors = 0
 let g:indentLine_color_term = 239
 "let g:indentLine_setConceal = 0
@@ -112,12 +113,12 @@ let g:indentLine_enabled = 1
 let g:autopep8_disable_show_diff = 1
 
 
-" ##################### colorschemes config #####################  
-set background=dark
-colorscheme PaperColor
+" ##################### colorschemes config #####################
+"set background=dark
+"colorscheme PaperColor
 
 
-" ##################### SuperTab config #####################  
+" ##################### SuperTab config #####################
 " 设置不同vim模式下都可以用tab和shift tab进行缩进
 nmap <tab> V>
 nmap <s-tab> V<
@@ -128,14 +129,14 @@ vmap <s-tab> <gv
 let g:SuperTabRetainCompletionType=2   " 0 - 不记录上次的补全方式; 1 - 记住上次的补全方式,直到用其他的补全命令改变它; 2 - 记住上次的补全方式,直到按ESC退出插入模式为止
 
 
-" ##################### tagbar config #####################  
+" ##################### tagbar config #####################
 nmap <F9> :TagbarToggle<cr>
 let g:tagbar_width=40
 " let g:tagbar_autofocus=1          " 打开tagbar时自动转到tagbar窗口
 let g:tagbar_sort=0               " if 0: 函数名按照在文件中的顺序排列，if 0: 函数名按照字典序排序
 
 
-" ##################### airline config #####################  
+" ##################### airline config #####################
 let g:airline#extensions#tabline#enabled = 1 " 显示tabline，相当于minibufexpl的功能。
 let g:airline#extensions#tabline#buffer_nr_show = 1 " buffer 数字从1开始
 let g:airline_theme='dark'  " 设置颜色主题
@@ -145,16 +146,16 @@ let g:airline_theme='dark'  " 设置颜色主题
 " nmap <S-tab> :bp<CR>
 
 
-" ##################### nerdtree config #####################  
+" ##################### nerdtree config #####################
 nmap <F8> :NERDTreeToggle<cr>
 "autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif  " 最后的文件关闭时自动关闭目录树
 let NERDTreeWinSize=20
 
 
-" ##################### nerdcommenter config #####################  
+" ##################### nerdcommenter config #####################
 let mapleader=","  "默认是 \ ,mapleader的意思就是要启用注释时的启动命令一样
 
-let g:NERDSpaceDelims=1 " add whitespace when commenting
+" let g:NERDSpaceDelims=1 " add whitespace when commenting
 
 "Use compact syntax for prettified multi-line comments
 let g:NERDCompactSexyComs = 1
