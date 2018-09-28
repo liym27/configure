@@ -10,6 +10,14 @@ map <C-w>- <C-w>_   " 重映射最大化窗口快捷键，针对水平分割的�
 map <F10> <Esc>:tabnew<cr>  " 设置F10为打开新标签页
 " map <C-[> <C-t>  " 重映射函数往回跳转快捷键
 
+" 自动补全括号
+inoremap ( ()<left>
+inoremap [ []<left>
+inoremap { {}<left>
+inoremap < <><left>
+inoremap " ""<left>
+inoremap ' ''<left>
+inoremap ` ``<left>
 
 " ------------------ some setting --------------------" 
 set fileencodings=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936
