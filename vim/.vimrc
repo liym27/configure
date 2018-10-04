@@ -1,6 +1,6 @@
 " ------------------ others --------------------" 
 " ------------------ some keys mapping ---------------------" 
-imap zk <ESC><right>
+imap zk <ESC>
 
 " 窗口设置
 " unmap <C-w>\
@@ -14,10 +14,24 @@ map <F10> <Esc>:tabnew<cr>  " 设置F10为打开新标签页
 inoremap ( ()<left>
 inoremap [ []<left>
 inoremap { {}<left>
-inoremap < <><left>
 inoremap " ""<left>
 inoremap ' ''<left>
-inoremap ` ``<left>
+
+function! RemoveNextDoubleChar(char)
+    let l:line = getline(".")
+    let l:next_char = l:line[col(".")]
+
+    if a:char == l:next_char
+        execute "normal! l"
+    else
+        execute "normal! i" . a:char . ""
+    end
+endfunction
+
+inoremap ) <ESC>:call RemoveNextDoubleChar(')')<CR>a
+inoremap ] <ESC>:call RemoveNextDoubleChar(']')<CR>a
+inoremap } <ESC>:call RemoveNextDoubleChar('}')<CR>a
+
 
 " ------------------ some setting --------------------" 
 set fileencodings=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936
@@ -133,8 +147,8 @@ colorscheme monokain
 
 " ##################### SuperTab config #####################  
 " 设置不同vim模式下都可以用tab和shift tab进行缩进
-nmap <tab> V>
-nmap <s-tab> V<
+" nmap <tab> V>
+" nmap <s-tab> V<
 vmap <tab> >gv
 vmap <s-tab> <gv
 "imap <S-tab> <Esc><<i
