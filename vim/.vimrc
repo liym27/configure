@@ -174,7 +174,7 @@ let g:airline_theme='dark'  " 设置颜色主题
 
 
 " ##################### nerdtree config #####################  
-nmap <F8> :NERDTreeToggle<cr>
+nmap <F4> :NERDTreeToggle<cr>
 "autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif  " 最后的文件关闭时自动关闭目录树
 let NERDTreeWinSize=20
 
