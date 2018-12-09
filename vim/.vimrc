@@ -33,77 +33,6 @@ inoremap ] <ESC>:call RemoveNextDoubleChar(']')<CR>a
 inoremap } <ESC>:call RemoveNextDoubleChar('}')<CR>a
 
 
-" ------------------ some setting --------------------" 
-set fileencodings=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936
-set termencoding=utf-8
-set encoding=utf-8  " 兼容中文字体，防止中文乱码
-set nocompatible  " 去掉vi一致性模式，避免以前版本的一些bug
-set cursorline   " 高亮光标所在的行
-hi cursorline cterm=NONE ctermbg=black ctermfg=gray guibg=NONE guifg=NONE
-set number
-syntax on
-set hls     "搜索时高亮显示被找到的文本
-set is
-set sw=4
-set showcmd
-set mouse=r
-set confirm
-set backspace=2   "可随时用退格键删除
-set whichwrap=b,s,<,>,[,]  "默认情况下，在 VIM 中当光标移到一行最左边的时候，我们继续按左键，光标不能回到上一行的最右边。
-set noundofile  " 文件就不会产生.un文件
-set nobackup
-set noswapfile  " 文件就不会产生.swp文件
-" set colorcolumn=101
-set nowrap
-
-" 代码折叠
-set foldmethod=indent  " 折叠方式：manual, indent(用缩进表示折叠), syntax(用语法高亮来定义折叠), marker(用标志折叠)
-set foldlevelstart=99  " 打开文件默认不折叠
-
-
-" 设置空格与tab键
-set smarttab  " 根据文件中其他地方的缩进空格个数来确定一个tab是多少个空格
-set tabstop=4
-set shiftwidth=4 " 每一级缩进是多少个空格
-set expandtab  " 将tab扩展成空格。noexpandtab反之
-
-" config vim to match tmux in background
-if exists('$TMUX')
-    set term=screen-256color
-end
-
-" 设置修改多窗口大小的快捷键映射
-"nnoremap r+ :exe "resize " . (winheight(0) * 3/2)<CR>
-"nnoremap r- :exe "resize " . (winheight(0) * 2/3)<CR>
-"nnoremap v+ :exe "vertical resize " . (winheight(0) * 3/2)<CR>
-"nnoremap v- :exe "vertical resize " . (winheight(0) * 2/3)<CR>
-
-
-" 设置系统粘贴板
-"vmap "+y :w !pbcopy<CR><CR>
-"nmap "+p :r !pbpaste<CR><CR>
-"" ctrl-x for cut
-"vmap <C-x> :!pbcopy<cr>
-"" " ctrl-c for copy
-"vmap <C-c> :w !pbcopy<cr><cr>
-"" " ctrl-v for paste
-"nmap <C-v> :set paste<CR>:r !pbpaste<CR>:set nopaste<CR>
-"imap <C-v> <Esc>:set paste<CR>:r !pbpaste<CR>:set nopaste<CR>
-
-
-" 开启256色并设置光标为GUI模式
-" if !has('gui_running')
-"   set t_Co=256
-"   if has('termguicolors')
-"     set termguicolors
-"   end
-"   let &t_SI = "\<Esc>]50;CursorShape=1\x7"
-"   let &t_SR = "\<Esc>]50;CursorShape=2\x7"
-"   let &t_EI = "\<Esc>]50;CursorShape=0\x7"
-"   set timeoutlen=1000
-"   set ttimeoutlen=0
-" end
-
 
 " ------------------ some configures of plugin --------------------" 
 filetype off
@@ -116,7 +45,7 @@ Plugin 'scrooloose/nerdtree'                "file / directory tree
 Plugin 'scrooloose/nerdcommenter'           " code commenter
 " Plugin 'Valloric/YouCompleteMe'
 " Plugin 'vim-scripts/cscope.vim'             " 函数跳转的插件
-Plugin 'bling/vim-airline'                  " 状态条加强
+Plugin 'vim-airline/vim-airline'                  " 状态条加强
 " Plugin 'vim-airline/vim-airline-themes'     " airline 的颜色主题
 Plugin 'majutsushi/tagbar'                  " 函数跳转的插件，可以在vim中显示函数目录
 Plugin 'vim-scripts/SuperTab'               " 使tab键有更快捷的上下文提示功能，自动补全的功能
@@ -198,5 +127,80 @@ let g:NERDTrimTrailingWhitespace = 1
 
 " Enable NERDCommenterToggle to check all selected lines is commented or not
 let g:NERDToggleCheckAllLines = 1
+
+
+
+" ------------------ some setting --------------------" 
+set t_Co=256
+set fileencodings=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936
+set termencoding=utf-8
+set encoding=utf-8  " 兼容中文字体，防止中文乱码
+set nocompatible  " 去掉vi一致性模式，避免以前版本的一些bug
+set number
+syntax on
+set hls     "搜索时高亮显示被找到的文本
+set cursorline   " 高亮光标所在的行
+" hi cursorline cterm=NONE ctermbg=gray  guibg=NONE guifg=NONE
+set is
+set sw=4
+set showcmd
+set mouse=r
+set confirm
+set backspace=2   "可随时用退格键删除
+set whichwrap=b,s,<,>,[,]  "默认情况下，在 VIM 中当光标移到一行最左边的时候，我们继续按左键，光标不能回到上一行的最右边。
+set noundofile  " 文件就不会产生.un文件
+set nobackup
+set noswapfile  " 文件就不会产生.swp文件
+" set colorcolumn=101
+set wrap
+hi MatchParen  ctermfg=0 ctermbg=12  " 设置括号匹配的颜色
+
+" 代码折叠
+set foldmethod=indent  " 折叠方式：manual, indent(用缩进表示折叠), syntax(用语法高亮来定义折叠), marker(用标志折叠)
+set foldlevelstart=99  " 打开文件默认不折叠
+
+
+" 设置空格与tab键
+set smarttab  " 根据文件中其他地方的缩进空格个数来确定一个tab是多少个空格
+set tabstop=4
+set shiftwidth=4 " 每一级缩进是多少个空格
+set expandtab  " 将tab扩展成空格。noexpandtab反之
+
+" config vim to match tmux in background
+if exists('$TMUX')
+    set term=screen-256color
+end
+
+" 设置修改多窗口大小的快捷键映射
+"nnoremap r+ :exe "resize " . (winheight(0) * 3/2)<CR>
+"nnoremap r- :exe "resize " . (winheight(0) * 2/3)<CR>
+"nnoremap v+ :exe "vertical resize " . (winheight(0) * 3/2)<CR>
+"nnoremap v- :exe "vertical resize " . (winheight(0) * 2/3)<CR>
+
+
+" 设置系统粘贴板
+"vmap "+y :w !pbcopy<CR><CR>
+"nmap "+p :r !pbpaste<CR><CR>
+"" ctrl-x for cut
+"vmap <C-x> :!pbcopy<cr>
+"" " ctrl-c for copy
+"vmap <C-c> :w !pbcopy<cr><cr>
+"" " ctrl-v for paste
+"nmap <C-v> :set paste<CR>:r !pbpaste<CR>:set nopaste<CR>
+"imap <C-v> <Esc>:set paste<CR>:r !pbpaste<CR>:set nopaste<CR>
+
+
+" 开启256色并设置光标为GUI模式
+" if !has('gui_running')
+"   set t_Co=256
+"   if has('termguicolors')
+"     set termguicolors
+"   end
+"   let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+"   let &t_SR = "\<Esc>]50;CursorShape=2\x7"
+"   let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+"   set timeoutlen=1000
+"   set ttimeoutlen=0
+" end
 
 
