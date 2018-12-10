@@ -32,6 +32,13 @@ inoremap ) <ESC>:call RemoveNextDoubleChar(')')<CR>a
 inoremap ] <ESC>:call RemoveNextDoubleChar(']')<CR>a
 inoremap } <ESC>:call RemoveNextDoubleChar('}')<CR>a
 
+" Vertical Split Buffer Function
+function! VerticalSplitBuffer(buffer)
+    execute "vert sb" a:buffer
+endfunction
+
+" Vertical Split Buffer Mapping
+command -nargs=1 Sb call VerticalSplitBuffer(<f-args>)
 
 
 " ------------------ some configures of plugin --------------------" 
