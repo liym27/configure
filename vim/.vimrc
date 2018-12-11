@@ -1,6 +1,6 @@
 " ------------------ others --------------------" 
 " ------------------ some keys mapping ---------------------" 
-imap zk <ESC><right>
+imap zk <ESC>
 
 " 窗口设置
 " unmap <C-w>\
