@@ -14,8 +14,8 @@ map <F10> <Esc>:tabnew<cr>  " 设置F10为打开新标签页
 inoremap ( ()<left>
 inoremap [ []<left>
 inoremap { {}<left>
-inoremap " ""<left>
-inoremap ' ''<left>
+" inoremap " ""<left>
+" inoremap ' ''<left>
 
 function! RemoveNextDoubleChar(char)
     let l:line = getline(".")
@@ -51,7 +51,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/nerdtree'                "file / directory tree
 Plugin 'scrooloose/nerdcommenter'           " code commenter
 " Plugin 'Valloric/YouCompleteMe'
-" Plugin 'vim-scripts/cscope.vim'             " 函数跳转的插件
+Plugin 'vim-scripts/cscope.vim'             " 函数跳转的插件
 Plugin 'vim-airline/vim-airline'                  " 状态条加强
 " Plugin 'vim-airline/vim-airline-themes'     " airline 的颜色主题
 Plugin 'majutsushi/tagbar'                  " 函数跳转的插件，可以在vim中显示函数目录
@@ -74,6 +74,10 @@ let g:indentLine_color_term = 239
 let g:indentLine_char = "|"
 let g:indentLine_enabled = 1
 let g:autopep8_disable_show_diff = 1
+" let g:indentLine_noConcealCursor = ""
+" let g:vim_json_syntax_conceal = 0
+" let g:indentLine_setConceal = 0
+autocmd Filetype json let g:indentLine_enabled = 0  " indentLine插件会影响 json文件双引号的显示，所以关掉
 
 
 " ##################### colorschemes config #####################  
