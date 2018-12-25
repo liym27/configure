@@ -54,11 +54,13 @@ Plugin 'scrooloose/nerdcommenter'           " code commenter
 " Plugin 'vim-scripts/cscope.vim'             " 函数跳转的插件
 Plugin 'vim-airline/vim-airline'                  " 状态条加强
 " Plugin 'vim-airline/vim-airline-themes'     " airline 的颜色主题
-Plugin 'majutsushi/tagbar'                  " 函数跳转的插件，可以在vim中显示函数目录
+Plugin 'majutsushi/tagbar'                  " 可以在vim中显示函数目录
 Plugin 'vim-scripts/SuperTab'               " 使tab键有更快捷的上下文提示功能，自动补全的功能
 Plugin 'flazz/vim-colorschemes'             " 颜色主题库
 Plugin 'Yggdroot/indentLine'                " 显示缩进指示线
 " Plugin 'fholgado/minibufexpl.vim'           " 多文件之间的切换
+Plugin 'tpope/vim-fugitive'                 " 方便在vim中使用git的命令
+Plugin 'godlygeek/tabular'                  " 代码对齐
 call vundle#end()
 filetype plugin indent on
 
