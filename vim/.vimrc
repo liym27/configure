@@ -51,7 +51,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/nerdtree'                "file / directory tree
 Plugin 'scrooloose/nerdcommenter'           " code commenter
 " Plugin 'Valloric/YouCompleteMe'
-Plugin 'vim-scripts/cscope.vim'             " 函数跳转的插件
+" Plugin 'vim-scripts/cscope.vim'             " 函数跳转的插件
 Plugin 'vim-airline/vim-airline'                  " 状态条加强
 " Plugin 'vim-airline/vim-airline-themes'     " airline 的颜色主题
 Plugin 'majutsushi/tagbar'                  " 函数跳转的插件，可以在vim中显示函数目录
