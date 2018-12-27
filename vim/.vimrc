@@ -65,8 +65,9 @@ call vundle#end()
 filetype plugin indent on
 
 
-" ##################### minibufexpl config #####################  
+" ##################### tabular config #####################
 
+" ##################### vim-fugitive config #####################  
 
 " ##################### indentLine config #####################  
 nmap <F6> :IndentLinesToggle<cr>
@@ -183,6 +184,15 @@ set expandtab  " 将tab扩展成空格。noexpandtab反之
 if exists('$TMUX')
     set term=screen-256color
 end
+
+" 这个命令用于检测tags文件是否存在，若存在则自动更新tag file
+function! CheckTagFile()
+    if filereadable("tags")
+        au BufWritePost *.py,*.c,*.cpp,*.h silent! !eval 'ctags -R -o newtags; mv newtags tags' & 
+    endif
+endfunction
+call CheckTagFile()
+
 
 " 设置修改多窗口大小的快捷键映射
 "nnoremap r+ :exe "resize " . (winheight(0) * 3/2)<CR>
