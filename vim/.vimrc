@@ -191,7 +191,7 @@ function! CheckTagFile()
         au BufWritePost *.py,*.c,*.cpp,*.h silent! !eval 'ctags -R -o newtags; mv newtags tags' & 
     endif
 endfunction
-call CheckTagFile()
+" call CheckTagFile()
 
 
 " 设置修改多窗口大小的快捷键映射
