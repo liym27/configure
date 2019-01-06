@@ -1,6 +1,7 @@
 " ------------------ others --------------------" 
 " ------------------ some keys mapping ---------------------" 
 imap zk <ESC>
+nmap zk <ESC>
 
 " 窗口设置
 " unmap <C-w>\
@@ -60,12 +61,11 @@ Plugin 'flazz/vim-colorschemes'             " 颜色主题库
 Plugin 'Yggdroot/indentLine'                " 显示缩进指示线
 " Plugin 'fholgado/minibufexpl.vim'           " 多文件之间的切换
 Plugin 'tpope/vim-fugitive'                 " 方便在vim中使用git的命令
-Plugin 'godlygeek/tabular'                  " 代码对齐
+" Plugin 'godlygeek/tabular'                  " 代码对齐
+" Plugin 'tmux-plugins/vim-tmux-focus-events'        " 配置tmux使得在tmux中打开vim后FocusGained FocusLost有效
 call vundle#end()
 filetype plugin indent on
 
-
-" ##################### tabular config #####################
 
 " ##################### vim-fugitive config #####################  
 
@@ -186,12 +186,21 @@ if exists('$TMUX')
 end
 
 " 这个命令用于检测tags文件是否存在，若存在则自动更新tag file
-function! CheckTagFile()
-    if filereadable("tags")
-        au BufWritePost *.py,*.c,*.cpp,*.h silent! !eval 'ctags -R -o newtags; mv newtags tags' & 
+function! AutoUpdateTags()
+    if filereadable("ctags.sh") " content in ctags.sh should be: find . -name '.*py' | ctags -L -
+        " au BufWritePost *.py,*.c,*.cpp,*.h silent! !eval 'ctags -R -o newtags; mv newtags tags' &
+        au BufWritePost *.py,*.c,*.cpp,*.h silent! !eval 'sh ctags.sh' & 
     endif
 endfunction
-" call CheckTagFile()
+call AutoUpdateTags()
+
+
+" Detect file change, offer to reload file
+set updatetime=1000  " 设置checktime的更新间隔为1秒
+autocmd CursorHold,CursorHoldI * checktime
+autocmd FocusGained,BufEnter * :checktime
+autocmd FileChangedShellPost * echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
+set autoread  " 让vim自动更新在其它地方修改过的文件, 一般就是用在git跳转的时候可以自动更新文件内容
 
 
 " 设置修改多窗口大小的快捷键映射
