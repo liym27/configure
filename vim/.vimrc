@@ -205,7 +205,7 @@ function! AutoFreshFile()
 endfunction
 
 " only reload file when detected file changed in specified filetype
-autocmd Filetype py,c,cpp,h,sh,json call AutoFreshFile()
+autocmd Filetype py,c,cpp,h,sh,json,yaml,txt call AutoFreshFile()
 
 
 " 设置修改多窗口大小的快捷键映射
