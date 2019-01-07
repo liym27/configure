@@ -43,7 +43,7 @@ command -nargs=1 Sb call VerticalSplitBuffer(<f-args>)
 
 
 " ------------------ some configures of plugin --------------------" 
-filetype off
+filetype on 
 set rtp+=~/.vim/bundle/Vundle.vim
 
 call vundle#begin()
@@ -196,11 +196,16 @@ call AutoUpdateTags()
 
 
 " Detect file change, offer to reload file
-set updatetime=1000  " 设置checktime的更新间隔为1秒
-autocmd CursorHold,CursorHoldI * checktime
-autocmd FocusGained,BufEnter * :checktime
-autocmd FileChangedShellPost * echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
-set autoread  " 让vim自动更新在其它地方修改过的文件, 一般就是用在git跳转的时候可以自动更新文件内容
+function! AutoFreshFile()
+    set updatetime=1000  " 设置checktime的更新间隔为1秒
+    autocmd CursorHold,CursorHoldI * checktime
+    autocmd FocusGained,BufEnter * :checktime
+    autocmd FileChangedShellPost * echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
+    set autoread  " 让vim自动更新在其它地方修改过的文件, 一般就是用在git跳转的时候可以自动更新文件内容
+endfunction
+
+" only reload file when detected file changed in specified filetype
+autocmd Filetype py,c,cpp,h,sh,json call AutoFreshFile()
 
 
 " 设置修改多窗口大小的快捷键映射
