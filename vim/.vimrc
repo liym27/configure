@@ -195,18 +195,16 @@ endfunction
 call AutoUpdateTags()
 
 
-" Detect file change, offer to reload file
+" 通过触发checktime命令，来执行autoread命令，从而可以自动更新当前文件(如果当前文件在其它地方修改了的话，就会被更新过来)
 function! AutoFreshFile()
-    set updatetime=1000  " 设置checktime的更新间隔为1秒
-    autocmd CursorHold,CursorHoldI * checktime
-    autocmd FocusGained,BufEnter * :checktime
+    set updatetime=1000  " 设置checktime的更新间隔为1秒, 默认4秒
+    autocmd! CursorHold,CursorHoldI,FocusGained,BufEnter * silent! checktime   " silent!命令可以抑制错误信息的弹出
+    " autocmd! CursorHold,CursorHoldI,FocusGained,BufEnter * if mode() != "c" | checktime | endif
     autocmd FileChangedShellPost * echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
     set autoread  " 让vim自动更新在其它地方修改过的文件, 一般就是用在git跳转的时候可以自动更新文件内容
+                  " 但是这个命令要运行checktime之后才会执行，所以上面才需要通过一些触发事件来运行checktime
 endfunction
-
-" only reload file when detected file changed in specified filetype
-autocmd Filetype py,c,cpp,h,sh,json,yaml,txt call AutoFreshFile()
-
+call AutoFreshFile()
 
 " 设置修改多窗口大小的快捷键映射
 "nnoremap r+ :exe "resize " . (winheight(0) * 3/2)<CR>
