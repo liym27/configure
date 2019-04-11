@@ -61,10 +61,20 @@ Plugin 'flazz/vim-colorschemes'             " 颜色主题库
 Plugin 'Yggdroot/indentLine'                " 显示缩进指示线
 " Plugin 'fholgado/minibufexpl.vim'           " 多文件之间的切换
 Plugin 'tpope/vim-fugitive'                 " 方便在vim中使用git的命令
+" Plugin 'lervag/vimtex'                      " 在vim中使用latex
 " Plugin 'godlygeek/tabular'                  " 代码对齐
 " Plugin 'tmux-plugins/vim-tmux-focus-events'        " 配置tmux使得在tmux中打开vim后FocusGained FocusLost有效
 call vundle#end()
 filetype plugin indent on
+
+
+" ##################### vimtex config #####################  
+" let g:tex_flavor='latex'
+" let g:vimtex_view_method='zathura'
+" let g:vimtex_quickfix_mode=0
+" " 下面两行控制隐藏功能，开启之后，除了光标所在行之外，文本夹杂的latex代码会被隐藏掉，文档更易读。
+" set conceallevel=1
+" let g:tex_conceal='abdmg'
 
 
 " ##################### vim-fugitive config #####################  
