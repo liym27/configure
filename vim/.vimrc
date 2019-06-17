@@ -2,6 +2,7 @@
 " ------------------ some keys mapping ---------------------" 
 imap zk <ESC>
 nmap zk <ESC>
+" :map <C-]> g<C-]>
 
 " 窗口设置
 " unmap <C-w>\
@@ -52,9 +53,9 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/nerdtree'                "file / directory tree
 Plugin 'scrooloose/nerdcommenter'           " code commenter
 " Plugin 'Valloric/YouCompleteMe'
-" Plugin 'vim-scripts/cscope.vim'             " 函数跳转的插件
+" Plugin 'vim-scripts/cscope'             " 函数跳转的插件
 Plugin 'vim-airline/vim-airline'                  " 状态条加强
-" Plugin 'vim-airline/vim-airline-themes'     " airline 的颜色主题
+Plugin 'vim-airline/vim-airline-themes'     " airline 的颜色主题
 Plugin 'majutsushi/tagbar'                  " 可以在vim中显示函数目录
 Plugin 'vim-scripts/SuperTab'               " 使tab键有更快捷的上下文提示功能，自动补全的功能
 Plugin 'flazz/vim-colorschemes'             " 颜色主题库
@@ -215,6 +216,8 @@ function! AutoFreshFile()
                   " 但是这个命令要运行checktime之后才会执行，所以上面才需要通过一些触发事件来运行checktime
 endfunction
 call AutoFreshFile()
+
+set tags=./tags;/  " 保证当前目录在ctags的子目录下也能进行函数跳转
 
 " 设置修改多窗口大小的快捷键映射
 "nnoremap r+ :exe "resize " . (winheight(0) * 3/2)<CR>
