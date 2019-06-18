@@ -2,7 +2,6 @@
 " ------------------ some keys mapping ---------------------" 
 imap zk <ESC>
 nmap zk <ESC>
-<<<<<<< HEAD
 :map <C-]> g<C-]>
 
 " 窗口设置
