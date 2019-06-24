@@ -1,0 +1,65 @@
+xport HOME=/home/work/zhuzhifan/
+export PATH=/opt/compiler/gcc-4.8.2/bin:/usr/bin:/bin:/usr/sbin:/sbin
+
+export C_INCLUDE_PATH=/home/work/zhuzhifan/apps/cuda-9.0/include:$C_INCLUDE_PATH
+export LIBRARY_PATH=/home/work/zhuzhifan/apps/cuda-9.0/lib64/:$LIBRARY_PATH
+export C_INCLUDE_PATH=/home/work/zhuzhifan/.jumbo/include:$C_INCLUDE_PATH
+export LIBRARY_PATH=/home/work/zhuzhifan/.jumbo/lib:$LIBRARY_PATH
+
+alias ls='ls --color=tty'
+alias lh='ls -lh'
+alias ds='du -sh'
+
+export PS1='\[\033[01;32m\]\u@\H \[\033[01;34m\]\w \[\e[35m\][\d \A]\n\[\033[01;34m\] $ \[\033[00m\]'
+function share(){
+    echo `hostname`:`pwd`/$1
+}
+
+source ~/.git-completion.bash
+
+[[ -s "/home/work/zhuzhifan/.jumbo/etc/bashrc" ]] && source "/home/work/zhuzhifan/.jumbo/etc/bashrc"
+export LD_LIBRARY_PATH=/home/work/zhuzhifan/.jumbo/lib:$LD_LIBRARY_PATH
+export LD_LIBRARY_PATH=/home/work/zhuzhifan/apps/mkl/lib/intel64:$LD_LIBRARY_PATH
+xport LD_LIBRARY_PATH=/home/work/zhuzhifan/apps/cuda-9.0/lib64/:$LD_LIBRARY_PATH
+export LD_LIBRARY_PATH=/home/work/zhuzhifan/apps/openmpi-4.0/lib/:$LD_LIBRARY_PATH
+export LD_LIBRARY_PATH=/home/work/zhuzhifan/apps/python-3.6.5/lib:$LD_LIBRARY_PATH
+export LD_LIBRARY_PATH=/home/work/zhuzhifan/apps/python-2.7.15/lib:$LD_LIBRARY_PATH
+export LD_LIBRARY_PATH=/home/work/zhuzhifan/apps/nccl_2.3.5/lib:$LD_LIBRARY_PATH
+export PATH=/home/work/zhuzhifan/apps/bin:$PATH
+export PATH=/home/work/zhuzhifan/apps/cuda-9.0/bin:$PATH
+export PATH=/home/work/zhuzhifan/apps/python-3.6.5/bin:$PATH
+export PATH=/home/work/zhuzhifan/apps/python-2.7.15/bin:$PATH
+export PATH=/home/work/zhuzhifan/apps/openmpi-4.0/bin:$PATH
+export PATH=/home/work/zhuzhifan/apps/tmux-2.0/bin:$PATH
+
+export http_proxy=http://172.19.61.250:3128/
+export https_proxy=http://172.19.61.250:3128/
+
+export TERM=screen
+export TERMINFO=/usr/share/terminfo
+export TMOUT=0
+export TMPDIR=/home/work/zhuzhifan/._tmp_
+
+alias hadoop_yq='/home/work/zhuzhifan/apps/hadoop-client-all/hadoop-client-global/hadoop/bin/hadoop'
+alias hadoop_kh='/home/work/zhuzhifan/apps/hadoop-client-all/hadoop-client-khan/hadoop/bin/hadoop'
+alias hadoop_ltr='/home/work/zhuzhifan/apps/hadoop-client-all/hadoop-client-ltr/hadoop/bin/hadoop'
+alias hadoop_heng='/home/work/zhuzhifan/apps/hadoop-client-all/hadoop-client-heng/hadoop/bin/hadoop'
+alias hadoop_dqa='/home/work/zhuzhifan/apps/hadoop-client-all/hadoop-client-dqa/hadoop/bin/hadoop'
+alias hadoop_taihu='/home/work/zhuzhifan/apps/hadoop-client-all/hadoop-client-taihu/hadoop/bin/hadoop'
+alias hadoop_xt="/home/work/zhuzhifan/apps/hadoop-client-all/hadoop-client-xt/hadoop/bin/hadoop"
+alias hadoop_km="/home/work/zhuzhifan/apps/hadoop-client-all/hadoop-client-km/hadoop/bin/hadoop"
+
+alias xt="/home/work/zhuzhifan/apps/hadoop-client-all/hadoop-client-xt/hadoop/bin/hadoop fs -ls /user/NLP_Data/zhuzhifan"
+alias km="/home/work/zhuzhifan/apps/hadoop-client-all/hadoop-client-km/hadoop/bin/hadoop fs -ls /user/NLP_KM_Data/zhuzhifan"
+alias yq='/home/work/zhuzhifan/apps/hadoop-client-all/hadoop-client-global/hadoop/bin/hadoop fs -ls /user/ccdb/working/nlp/ol/zhuzhifan/'
+alias heng='/home/work/zhuzhifan/apps/hadoop-client-all/hadoop-client-heng/hadoop/bin/hadoop fs -ls /app/ssg/nlp/ol/zhuzhifan/'
+alias taihu='/home/work/zhuzhifan/apps/hadoop-client-all/hadoop-client-taihu/hadoop/bin/hadoop fs -ls /user/nlp/nlp-sz/ol/zhuzhifan/'
+alias ltr='/home/work/zhuzhifan/apps/hadoop-client-all/hadoop-client-ltr/hadoop/bin/hadoop fs -ls /user/ltr-offline/zhuzhifan/'
+alias py3='/home/work/zhuzhifan/apps/python-3.6.5/bin/python3'
+alias pip3='/home/work/zhuzhifan/apps/python-3.6.5/bin/pip3 --trusted-host pip.baidu.com'
+alias ipy3='/home/work/zhuzhifan/apps/python-3.6.5/bin/ipython3'
+alias py2='/home/work/zhuzhifan/apps/python-2.7.15/bin/python2'
+alias pip2='/home/work/zhuzhifan/apps/python-2.7.15/bin/pip2 --trusted-host pip.baidu.com'
+alias ipy2='/home/work/zhuzhifan/apps/python-2.7.15/bin/ipython2'
+#HGCP use
+export PATH=/home/work/zhuzhifan//.hgcp/software-install/HGCP_client/bin:${PATH}
