@@ -95,8 +95,13 @@ autocmd Filetype json let g:indentLine_enabled = 0  " indentLine插件会影响 
 
 
 " ##################### colorschemes config #####################  
+" if uses 'solarized', iterm2 color should set to 'solarized dark'
+" colorscheme solarized  
+"
 " set background=dark
-colorscheme monokain 
+" colorscheme PaperColor
+" colorscheme molokai
+colorscheme monokain
 
 
 " ##################### SuperTab config #####################  
@@ -117,7 +122,7 @@ let g:tagbar_width=40
 let g:tagbar_sort=0               " if 0: 函数名按照在文件中的顺序排列，if 0: 函数名按照字典序排序
 
 
-" ##################### airline config #####################  
+" ##################### vim-airline config #####################  
 let g:airline#extensions#tabline#enabled = 1 " 显示tabline，相当于minibufexpl的功能。
 let g:airline#extensions#tabline#buffer_nr_show = 1 " buffer 数字从1开始
 let g:airline_theme='dark'  " 设置颜色主题
@@ -165,7 +170,13 @@ set number
 syntax on
 set hls     "搜索时高亮显示被找到的文本
 set cursorline   " 高亮光标所在的行
-" hi cursorline cterm=NONE ctermbg=gray  guibg=NONE guifg=NONE
+" hi cursorline ctermfg=None  ctermbg=8  guibg=NONE guifg=NONE
+" 在多窗口情况下，非激活窗口关闭高亮当前行
+augroup BgHighlight
+    autocmd!
+    autocmd WinEnter * set cul
+    autocmd WinLeave * set nocul
+augroup END
 set is
 set sw=4
 set showcmd
@@ -176,9 +187,15 @@ set whichwrap=b,s,<,>,[,]  "默认情况下，在 VIM 中当光标移到一行�
 set noundofile  " 文件就不会产生.un文件
 set nobackup
 set noswapfile  " 文件就不会产生.swp文件
-" set colorcolumn=101
+set colorcolumn=90
+augroup BgHighlight
+    autocmd!
+	autocmd WinEnter * set colorcolumn=90
+	autocmd WinLeave * set colorcolumn=0
+augroup END
 set wrap
-hi MatchParen  ctermfg=0 ctermbg=12  " 设置括号匹配的颜色
+" highlight MatchParen  guifg=#000000 guibg=#FD971F gui=bold  " 设置括号匹配的颜色
+" highlight Search guifg=#FFFFFF guibg=#455354 " 设置在vim搜索时的颜色
 
 " 代码折叠
 set foldmethod=indent  " 折叠方式：manual, indent(用缩进表示折叠), syntax(用语法高亮来定义折叠), marker(用标志折叠)
