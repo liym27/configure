@@ -169,6 +169,7 @@ set nocompatible  " 去掉vi一致性模式，避免以前版本的一些bug
 set number
 syntax on
 set hls     "搜索时高亮显示被找到的文本
+set colorcolumn=90
 set cursorline   " 高亮光标所在的行
 " hi cursorline ctermfg=None  ctermbg=8  guibg=NONE guifg=NONE
 " 在多窗口情况下，非激活窗口关闭高亮当前行
@@ -176,6 +177,8 @@ augroup BgHighlight
     autocmd!
     autocmd WinEnter * set cul
     autocmd WinLeave * set nocul
+	autocmd WinEnter * set colorcolumn=90
+	autocmd WinLeave * set colorcolumn=0
 augroup END
 set is
 set sw=4
@@ -187,12 +190,11 @@ set whichwrap=b,s,<,>,[,]  "默认情况下，在 VIM 中当光标移到一行�
 set noundofile  " 文件就不会产生.un文件
 set nobackup
 set noswapfile  " 文件就不会产生.swp文件
-set colorcolumn=90
-augroup BgHighlight
-    autocmd!
-	autocmd WinEnter * set colorcolumn=90
-	autocmd WinLeave * set colorcolumn=0
-augroup END
+" augroup BgHighlight
+"     autocmd!
+"     autocmd WinEnter * set colorcolumn=90
+"     autocmd WinLeave * set colorcolumn=0
+" augroup END
 set wrap
 " highlight MatchParen  guifg=#000000 guibg=#FD971F gui=bold  " 设置括号匹配的颜色
 " highlight Search guifg=#FFFFFF guibg=#455354 " 设置在vim搜索时的颜色
