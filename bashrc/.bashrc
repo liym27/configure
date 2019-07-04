@@ -11,7 +11,9 @@ function unmark {
 rm -i "$MARKPATH/$1"
 }
 function marks {
-ls -l "$MARKPATH" | sed 's/ / /g' | cut -d' ' -f9- | sed 's/ -/\t-/g' && echo
+# 在linux下需要使用第一行，在mac下可能使用第二行. 区别是\t
+# ls -l "$MARKPATH" | sed 's/ / /g' | cut -d' ' -f9- | sed 's/ -/\t-/g' && echo
+ls -l "$MARKPATH" | sed 's/ / /g' | cut -d' ' -f9- | sed 's/ -/ -/g' && echo
 }
 _completemarks() {
 local curw=${COMP_WORDS[COMP_CWORD]}
